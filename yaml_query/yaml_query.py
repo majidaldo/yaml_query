@@ -7,9 +7,9 @@ stuff here is just for convenience.
 """
 
 import os
-import dict2table
-import sql as _sql
-import yaml2sql
+from . import dict2table
+from . import sql as _sql
+from . import yaml2sql
 
 
 

@@ -1,5 +1,5 @@
-from  dict2table import dict2table
-from yaml2dict import yaml2dict
+from  .dict2table import dict2table
+from .yaml2dict import yaml2dict
 
 
 def yaml2table(yaml_file):

@@ -1,6 +1,6 @@
-import yaml2dict
-import sql
-import dict2table
+from . import yaml2dict
+from . import sql
+from . import dict2table
 
 import os
 
