@@ -1,0 +1,29 @@
+---
+
+#item_column: ITEM_ID # special
+
+test:
+  test: 123
+
+item1:
+  field1: asdf
+  field2: 123
+  cool: tag # get the 'tag' effect
+  item: tag
+
+item2:
+  field1: asdf2
+  field2: 123
+  hot: tag
+  item: tag
+  any: 1
+  number: 2
+  of: 3
+  fields: 4
+
+
+specialone:
+  myfield: is unique
+  date_type: 2011-11-11
+  float_type: 1.2
+  bool_type: True
