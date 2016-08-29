@@ -3,7 +3,7 @@ Use a YAML file as a table to query.
 
 ## Quick Start
 
-Suppose you have a YAML file that describes items as follows. You'd like to 'filter' the items for certain attributes.
+Suppose you have a `file.yaml` that describes items as follows. You'd like to 'filter' the items for certain attributes.
 
 ```
 ---
