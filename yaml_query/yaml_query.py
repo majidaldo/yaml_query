@@ -37,14 +37,15 @@ def sql(conn,query):
 
 
 def select_items(conn,query):
+    # eh not really needed b/c you can just select ITEM_ID
+    # todo: remove
     """ returns just the items (IDs) in query """
     for arow in sql(conn,query):
         yield arow[dict2table.item_column]
 
 
-def items_from_yamlfiles(sql_query):
-    """ Just a convenience b/c it creates the db connection within.
-    returns just item ids """
+def query_yamlfiles(sql_query):
+    """ Just a convenience b/c it creates the db connection within."""
     yf = _get_files_in_sql(sql_query)
     if len(yf)==0:
         raise ValueError('no yaml files in sql query')
@@ -53,7 +54,7 @@ def items_from_yamlfiles(sql_query):
     for ayf in yf[1:]: # insert the others
         yaml2sql.yaml2sql(ayf, connection=conn)
 
-    items = select_items(conn,sql_query)
+    items = sql(conn,sql_query)
     return items
 
 
@@ -62,9 +63,13 @@ if __name__=='__main__':
     import sys
     sql_query = sys.argv[1]
 
-    items = items_from_yamlfiles(sql_query)
+    items = query_yamlfiles(sql_query)
 
-    for anitem in items: print(anitem)
+    for anitem in items:
+        toprint = anitem
+        toprint = [ '"'+str(acol).replace('"','\\"')+'",'
+                            for acol in toprint]
+        print(*toprint)
 
 
 # todo: the abstraction should be 'named' dictionaries
